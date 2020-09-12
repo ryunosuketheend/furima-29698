@@ -5,12 +5,13 @@
 | Column              | Type   | Options                 |
 | ------------------- | ------ | ----------------------- |
 | nickname            | string | null:false  unique:true |
-| email               | string | null:false  unique:true |
-| password            | string | null:false              |
 | first_name          | string | null:false              |
 | last_name           | string | null:false              |
 | first_name_katakana | string | null:false              |
 | last_name_katakana  | string | null:false              |
+| birthday            | date   | null:false              |
+| email               | string | null:false  unique:true |
+| password            | string | null:false              |
 
   Association
 
@@ -24,9 +25,9 @@
 
 | Column              | Type       | Options                      |
 | ------------------- | ---------- | ---------------------------- |
-| item_name           | string     | null:false                   |
-| item_explanation    | text       | null:false                   |
-| category_id         | references | null:false  foreign_key:true |
+| name                | string     | null:false                   |
+| explanation         | text       | null:false                   |
+| category_id         | integer    | null:false                   |
 | brand_name          | string     |                              |
 | item_status         | integer    | null:false                   |
 | action_status       | integer    | null:false                   |
@@ -34,7 +35,7 @@
 | shopping_origin     | integer    | null:false                   |
 | days_until_shopping | integer    | null:false                   |
 | exhibition_price    | integer    | null:false                   |
-| user_id             | references | null:false                   |
+| user_id             | integer    | null:false                   |
 
   Association
 
@@ -58,44 +59,6 @@
   Association
 
 - belongs_to :users
-
-
-  cards table
-
-| Column      | Type       | Options                      |
-| ----------- | ---------- | ---------------------------- |
-| user_id     | references | null:false  foreign_key:true |
-| card_id     | string     | null:false                   |
-| custmer_id  | string     | null:false                   |
-| card_number | string     | null:false  unique:true      |
-
-  Association
-
-- belongs_to :users
-
-
-  items table
-
-| Column       | Type       | Options                      |
-| ------------ | -----------| ---------------------------- |
-| image        | text       | null:false                   |
-| item_id      | references | null:false  foreign_key:true |
-
-  Association
-
-- belongs_to :items
-
-
-  categories table
-
-| Column   | Type   | Options    |
-| -------- | ------ | ---------- |
-| name     | string | null:false |
-| ancestry | string | index      |
-
-Association
-
-- belongs_to :items
 
 
   comments table
