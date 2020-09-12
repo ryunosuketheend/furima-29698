@@ -16,9 +16,7 @@
   Association
 
 - has_many :items
-- has_many :cards
 - has_many :comments
-- has_one  :address
 
 
   items table
@@ -40,8 +38,6 @@
   Association
 
 - belongs_to :users
-- has_one    :images
-- has_one    :categories
 - has_many   :comments
 
 
