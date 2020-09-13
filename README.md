@@ -17,6 +17,7 @@
 
 - has_many :items
 - has_many :comments
+- has_many :purchases
 
 
   items table
@@ -38,6 +39,7 @@
 
 - belongs_to :user
 - has_many   :comments
+- has_one    :purchase
 
 
   address table
@@ -53,7 +55,7 @@
 
   Association
 
-- belongs_to :user
+- belongs_to :purchase
 
   comments table
 
@@ -80,3 +82,4 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one    :address
