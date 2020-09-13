@@ -46,12 +46,12 @@
 
 | Column        | Type       | Options                      |
 | ------------- | ---------- | ---------------------------- |
-| user          | references | null:false  foreign_key:true |
+| purchase      | references | null:false  foreign_key:true |
 | post_code     | string     | null:false                   |
 | prefecture    | integer    | null:false                   |
 | city          | string     | null:false                   |
 | building_name | string     |                              |
-| phone_number  | string     |                              |
+| phone_number  | string     | null:false                   |
 
   Association
 
