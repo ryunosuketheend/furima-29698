@@ -26,18 +26,17 @@
 | name                | string     | null:false                   |
 | explanation         | text       | null:false                   |
 | category_id         | integer    | null:false                   |
-| brand_name          | string     |                              |
 | item_status         | integer    | null:false                   |
 | action_status       | integer    | null:false                   |
 | delivery_fee        | integer    | null:false                   |
 | shopping_origin     | integer    | null:false                   |
 | days_until_shopping | integer    | null:false                   |
 | exhibition_price    | integer    | null:false                   |
-| user_id             | integer    | null:false                   |
+| user_id             | integer    | null:false  foreign_key:true |
 
   Association
 
-- belongs_to :users
+- belongs_to :user
 - has_many   :comments
 
 
@@ -45,16 +44,12 @@
 
 | Column        | Type       | Options                      |
 | ------------- | ---------- | ---------------------------- |
-| user_id       | references | null:false  foreign_key:true |
+| user          | references | null:false  foreign_key:true |
 | post_code     | string     | null:false                   |
 | prefecture    | string     | null:false                   |
 | city          | string     | null:false                   |
 | building_name | string     |                              |
 | phone_number  | string     |                              |
-
-  Association
-
-- belongs_to :users
 
 
   comments table
@@ -62,10 +57,18 @@
 | Column  | Type       | Options                      |
 | ------- | ---------- | ---------------------------- |
 | comment | text       | null:false                   |
-| user_id | references | null:false  foreign_key_true |
-| item_id | references | null:false  foreign_key_true |
+| user    | references | null:false  foreign_key_true |
+| item    | references | null:false  foreign_key_true |
 
   Association
 
 - belongs_to :users
 - belongs_to :items
+
+
+ cards table
+
+ | Column  | Type       | Options                      |
+ | ------- | ---------- | ---------------------------- |
+ | user    | references | null:false  foreign_key_true |
+ | item    | references | null:false  foreign_key_true |
