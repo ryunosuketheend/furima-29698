@@ -46,11 +46,14 @@
 | ------------- | ---------- | ---------------------------- |
 | user          | references | null:false  foreign_key:true |
 | post_code     | string     | null:false                   |
-| prefecture    | string     | null:false                   |
+| prefecture    | integer    | null:false                   |
 | city          | string     | null:false                   |
 | building_name | string     |                              |
 | phone_number  | string     |                              |
 
+  Association
+
+- belongs_to :user
 
   comments table
 
@@ -62,13 +65,18 @@
 
   Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 
 
- cards table
+ purchase table
 
  | Column  | Type       | Options                      |
  | ------- | ---------- | ---------------------------- |
  | user    | references | null:false  foreign_key_true |
  | item    | references | null:false  foreign_key_true |
+
+  Association
+
+- belongs_to :user
+- belongs_to :item
