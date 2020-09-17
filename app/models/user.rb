@@ -21,6 +21,6 @@ class User < ApplicationRecord
     validates :first_name_katakana, :last_name_katakana, presence: true,
               format: { with: VALID_PASSWORD_REGEX,
                message: "は全角(カタカナ)である必要があります"}
-  
-  
+
+
 end
